@@ -6,9 +6,8 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const menuItems = [
+  { name: "Gallery", href: "/gallery" }, // Added Gallery option
   { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Portfolio", href: "/portfolio" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -20,7 +19,8 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-14">
+        <div className="flex justify-between items-center h-12">
+          {/* Reduced height from h-14 to h-12 */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" aria-label="Home">
               <Image
@@ -28,7 +28,7 @@ export default function Navbar() {
                 alt="Logo"
                 width={60}
                 height={60}
-                className="h-20 w-auto"
+                className="h-16 w-auto" // Reduced height from h-20 to h-16
                 priority
               />
             </Link>
@@ -39,7 +39,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-600 hover:text-gray-900 px-2 py-1 rounded-md text-sm font-medium"
+                  className="text-black hover:text-blue-500 px-2 py-1 rounded-md text-sm font-medium"
                 >
                   {item.name}
                 </Link>
@@ -71,7 +71,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium"
+                className="text-black hover:text-blue-500 block px-3 py-2 rounded-md text-base font-medium"
                 onClick={toggleMenu}
               >
                 {item.name}

@@ -1,3 +1,67 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    font-family: "Roboto", sans-serif; /* Apply Roboto font globally */
+    margin: 0; /* Reset default margin */
+    padding: 0; /* Reset default padding */
+    box-sizing: border-box; /* Apply consistent box model */
+    scroll-behavior: smooth; /* Optional: Smooth scrolling */
+  }
+
+  * {
+    box-sizing: inherit; /* Ensure all elements use the same box-sizing */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Roboto", sans-serif; /* Use Roboto for headings */
+    font-weight: 700; /* Make headings bold */
+    margin-bottom: 1rem; /* Add margin to separate headings */
+  }
+
+  p {
+    margin-bottom: 1rem; /* Add margin to paragraphs */
+    line-height: 1.6; /* Improve readability with increased line height */
+  }
+
+  a {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Use current text color for links */
+    transition: color 0.3s ease; /* Optional: smooth color transition */
+  }
+
+  a:hover {
+    color: #3182ce; /* Change link color on hover */
+  }
+
+  /* Gradient animation */
+  @keyframes gradient-wave {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-gradient-wave {
+    animation: gradient-wave 3s ease forwards; /* One complete cycle */
+  }
+
+  /* Optional: global classes for reusable utility */
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
