@@ -5,15 +5,17 @@
 @layer base {
   html,
   body {
-    font-family: "Roboto", sans-serif; /* Apply Roboto font globally */
-    margin: 0; /* Reset default margin */
-    padding: 0; /* Reset default padding */
-    box-sizing: border-box; /* Apply consistent box model */
-    scroll-behavior: smooth; /* Optional: Smooth scrolling */
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    background-color: #0f1522; /* Updated dark violet background */
+    color: white; /* Ensure text is readable */
   }
 
   * {
-    box-sizing: inherit; /* Ensure all elements use the same box-sizing */
+    box-sizing: inherit;
   }
 
   h1,
@@ -22,46 +24,22 @@
   h4,
   h5,
   h6 {
-    font-family: "Roboto", sans-serif; /* Use Roboto for headings */
-    font-weight: 700; /* Make headings bold */
-    margin-bottom: 1rem; /* Add margin to separate headings */
-  }
-
-  p {
-    margin-bottom: 1rem; /* Add margin to paragraphs */
-    line-height: 1.6; /* Improve readability with increased line height */
+    font-weight: 700;
   }
 
   a {
-    text-decoration: none; /* Remove underline from links */
-    color: inherit; /* Use current text color for links */
-    transition: color 0.3s ease; /* Optional: smooth color transition */
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
   }
 
   a:hover {
-    color: #3182ce; /* Change link color on hover */
+    color: #3182ce;
   }
 
-  /* Gradient animation */
-  @keyframes gradient-wave {
-    0% {
-      background-position: 0% 50%;
-    }
-    100% {
-      background-position: 100% 50%;
-    }
-  }
-
-  .animate-gradient-wave {
-    animation: gradient-wave 3s ease forwards; /* One complete cycle */
-  }
-
-  /* Optional: global classes for reusable utility */
   .container {
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    margin: 0 auto;
+    padding: 0 1rem;
   }
 }

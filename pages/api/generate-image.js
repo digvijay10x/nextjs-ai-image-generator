@@ -1,4 +1,3 @@
-// pages/api/generate-image.js
 import axios from "axios";
 
 export default async function handler(req, res) {
@@ -16,7 +15,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await axios.post(
-      "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell",
+      "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell", // model URL
       { inputs: prompt },
       {
         headers: {
@@ -24,7 +23,7 @@ export default async function handler(req, res) {
           "Content-Type": "application/json",
         },
         responseType: "arraybuffer",
-        timeout: 30000, // 30 seconds timeout
+        timeout: 60000,
       }
     );
 

@@ -1,13 +1,11 @@
-import Banners from "@/components/Banners";
+import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
-import Sections from "@/components/Sections";
 
 export default function Page() {
   return (
     <div>
       <Navbar />
-      <Banners />
-      <Sections />
+      <HeroSection />
     </div>
   );
 }

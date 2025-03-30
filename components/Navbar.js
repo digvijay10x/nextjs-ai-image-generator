@@ -1,82 +1,102 @@
 "use client";
-
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X } from "lucide-react";
+import { useSession } from "next-auth/react";
 
-const menuItems = [
-  { name: "Gallery", href: "/gallery" }, // Added Gallery option
+const menuItemsLeft = [
+  { name: "Gallery", href: "/gallery" },
   { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const { data: session } = useSession();
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav className="bg-white shadow-sm">
+    <nav className="bg-black text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-12">
-          {/* Reduced height from h-14 to h-12 */}
-          <div className="flex-shrink-0 flex items-center">
-            <Link href="/" aria-label="Home">
-              <Image
-                src="/Logo.png"
-                alt="Logo"
-                width={60}
-                height={60}
-                className="h-16 w-auto" // Reduced height from h-20 to h-16
-                priority
-              />
-            </Link>
-          </div>
-          <div className="hidden sm:ml-6 sm:flex sm:items-center">
-            <div className="flex space-x-4">
-              {menuItems.map((item) => (
+        <div className="flex justify-between items-center h-20">
+          <div className="flex items-center space-x-8">
+            <div className="flex-shrink-0">
+              <Link href="/" aria-label="Home">
+                <span className="text-white text-3xl font-bold">Artivio</span>
+              </Link>
+            </div>
+            <div className="hidden sm:flex space-x-8">
+              {menuItemsLeft.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-black hover:text-blue-500 px-2 py-1 rounded-md text-sm font-medium"
+                  className="text-lg font-medium hover:text-[#4d6bfe]"
                 >
                   {item.name}
                 </Link>
               ))}
             </div>
           </div>
+          <div className="hidden sm:flex items-center space-x-8">
+            <Link
+              href="/contact"
+              className="text-lg font-medium hover:text-[#4d6bfe]"
+            >
+              Contact
+            </Link>
+            {session && (
+              <Link
+                href="/profile"
+                className="text-lg font-medium hover:text-[#4d6bfe]"
+              >
+                Profile
+              </Link>
+            )}
+          </div>
           <div className="sm:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-1 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-300 focus:outline-none"
               aria-expanded={isMenuOpen}
               aria-label="Toggle menu"
             >
-              <span className="sr-only">Open main menu</span>
               {isMenuOpen ? (
-                <X className="block h-5 w-5" aria-hidden="true" />
+                <X className="block h-6 w-6" aria-hidden="true" />
               ) : (
-                <Menu className="block h-5 w-5" aria-hidden="true" />
+                <Menu className="block h-6 w-6" aria-hidden="true" />
               )}
             </button>
           </div>
         </div>
       </div>
-
       {isMenuOpen && (
         <div className="sm:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            {menuItems.map((item) => (
+            {menuItemsLeft.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-black hover:text-blue-500 block px-3 py-2 rounded-md text-base font-medium"
+                className="block px-3 py-2 rounded-md text-lg font-medium hover:text-[#4d6bfe]"
                 onClick={toggleMenu}
               >
                 {item.name}
               </Link>
             ))}
+            <Link
+              href="/contact"
+              className="block px-3 py-2 rounded-md text-lg font-medium hover:text-[#4d6bfe]"
+              onClick={toggleMenu}
+            >
+              Contact
+            </Link>
+            {session && (
+              <Link
+                href="/profile"
+                className="block px-3 py-2 rounded-md text-lg font-medium hover:text-[#4d6bfe]"
+                onClick={toggleMenu}
+              >
+                Profile
+              </Link>
+            )}
           </div>
         </div>
       )}
