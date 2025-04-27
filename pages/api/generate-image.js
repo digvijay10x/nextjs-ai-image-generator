@@ -15,7 +15,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await axios.post(
-      "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell", // model URL
+      "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0", // model URL
       { inputs: prompt },
       {
         headers: {

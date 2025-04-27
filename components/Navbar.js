@@ -37,12 +37,6 @@ export default function Navbar() {
             </div>
           </div>
           <div className="hidden sm:flex items-center space-x-8">
-            <Link
-              href="/contact"
-              className="text-lg font-medium hover:text-[#4d6bfe]"
-            >
-              Contact
-            </Link>
             {session && (
               <Link
                 href="/profile"
@@ -81,13 +75,6 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="block px-3 py-2 rounded-md text-lg font-medium hover:text-[#4d6bfe]"
-              onClick={toggleMenu}
-            >
-              Contact
-            </Link>
             {session && (
               <Link
                 href="/profile"

@@ -29,12 +29,6 @@ export default function HeroSection() {
         >
           Generate Image
         </button>
-        <button
-          onClick={() => handleNavigation("/video-generation")}
-          className="bg-blue-500 text-white hover:bg-blue-600 min-w-[200px] py-3 px-6 rounded-lg text-lg font-semibold"
-        >
-          Generate Video
-        </button>
       </div>
     </main>
   );

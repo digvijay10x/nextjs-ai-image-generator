@@ -1,5 +1,5 @@
 import React from "react";
-import { Wand2, Image, Video, Trophy, Users, Sparkles } from "lucide-react";
+import { Wand2, Image, Trophy, Users, Sparkles, Zap } from "lucide-react";
 
 const AboutUs = () => {
   return (
@@ -27,9 +27,9 @@ const AboutUs = () => {
             description="Transform your text descriptions into stunning visual artwork using state-of-the-art AI technology."
           />
           <FeatureCard
-            icon={<Video className="w-6 h-6 text-purple-400" />}
-            title="Video Creation"
-            description="Create captivating videos from your prompts, bringing motion and life to your creative concepts."
+            icon={<Zap className="w-6 h-6 text-green-400" />}
+            title="Fast Generation"
+            description="Create beautiful AI-generated art in seconds with our optimized infrastructure and cutting-edge models."
           />
           <FeatureCard
             icon={<Trophy className="w-6 h-6 text-pink-400" />}
@@ -42,7 +42,7 @@ const AboutUs = () => {
             description="Help surface the best content through community-driven curation and recognition."
           />
           <FeatureCard
-            icon={<Users className="w-6 h-6 text-green-400" />}
+            icon={<Users className="w-6 h-6 text-purple-400" />}
             title="Creative Community"
             description="Join a vibrant community of creators pushing the boundaries of AI-powered art."
           />
